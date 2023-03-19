@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/trans"
+    tools:context=".presentation.ui.search.SearchFragment">
+
+
+    <ImageView
+        android:id="@id/blur"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/blue_effect"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_gray"
+        android:alpha="0.9"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchView"
+        style="@style/Widget.Material3.SearchBar.Outlined"
+        android:layout_width="0dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginHorizontal="@dimen/margin"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusTopStart="@dimen/margin"
+        app:boxCornerRadiusBottomStart="@dimen/margin"
+        app:boxCornerRadiusTopEnd="@dimen/margin"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:hint="@string/search_icon"
+        app:startIconDrawable="@drawable/ic_search_24"
+        app:startIconTint="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="@dimen/margin_xx"
+        app:endIconMode="custom"
+        app:endIconTint="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/dark_gray"
+            android:inputType="textPersonName"
+            android:paddingStart="0dp"
+            android:paddingTop="@dimen/margin_x"
+            android:paddingEnd="0dp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <!--android:digits="@string/input_character_space_hyphen_number"-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/cancel"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        app:layout_constraintBottom_toBottomOf="@+id/searchView"
+        android:textColor="@color/pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
